@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/output.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <title>Pacifica Resort - Menu </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/output.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <title>Pacifica Resort - Menu </title>
 </head>
-  <body>
-    <div class="w-full h-[70px] bg-cover bg-center bg-gray-200">
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <div class="w-full h-[70px] bg-cover bg-center bg-black">
       <div class="flex justify-between px-5 py-3">
-        <button class="sticky duration-500 border-2 border-[#0069af] w-12 transform hover: h-12 text-2xl rounded-full hover:bg-[#0069af] hover:text-white text-[#0069af] ">
-          <ion-icon name="menu"></ion-icon>
-        </button>
+          <button id="menu-btn" class="text-white w-12 h-12 text-2xl hover:bg-[#0069af] hover:text-white">
+            <ion-icon name="menu"></ion-icon>
+          </button>
 
-        <button class="sticky duration-500 border-2 border-[#0069af] w-12 transform hover: h-12 text-2xl rounded-full hover:bg-[#0069af] hover:text-white text-[#0069af] ">
-          ES
-        </button>
+          <button class="border-2 border-[#0069af] w-12 h-12 text-base rounded-full hover:bg-[#0069af] hover:text-white">
+            <span class="text-white">ES</span>
+          </button>        
       </div>
     </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 left-0 h-full w-3/12 bg-black transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <div class="flex justify-start p-4">
+            <button id="close-btn" class="text-gray-400 text-2xl hover:text-white">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </div>
+        
+        <div class="px-6">
+          <h2 class="">Restaurantes</h2>
+            <ul class="space-y-3">
+                <li class="border-t border-[#0069af] pt-3">
+                    <a href="#" class="block text-white">Reservar Cena</a>
+                </li>
+                <li class="border-t border-[#0069af] pt-3">
+                    <a href="#" class="block text-white">Encuesta</a>
+                </li>
+                <li class="border-t border-[#0069af] pt-3">
+                
+              </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Imagen header-->
     <div class="w-full h-[450px] bg-cover bg-center">
       <img src="./img/pexels-valeriya-1639562.jpg" alt="Imagen cena" class="w-full h-full object-cover">
     </div> 
+
+    <!-- Nav principal -->
     <div class="w-full overflow-x-auto scrollbar-hide shadow-lg rounded-lg">   
-      <nav class="flex justify-between text-center bg-gray-50 relative text-[#568cb0]">
+      <nav class="flex justify-between h-24 text-center bg-gray-50 relative text-[#568cb0]">
           <a href="#" class="menu-item flex flex-col px-20 py-4 items-center active">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="70" viewBox="0 0 24 24"><path fill="currentColor" d="M7.475 21q-.621 0-1.078-.407q-.457-.406-.532-1.022L4 3h16l-1.846 16.571q-.075.616-.532 1.022T16.544 21H7.475ZM5.727 9.385l1.138 10.077q.039.23.212.384T7.48 20h9.057q.231 0 .404-.154q.173-.154.212-.384l1.138-10.077H5.727Zm-.135-1h12.835L18.865 4H5.115l.477 4.385ZM12 17.115q-.562 0-.956-.394q-.394-.394-.394-.956q0-.51.28-1.083q.28-.574 1.07-1.66q.79 1.086 1.07 1.66q.28.574.28 1.083q0 .562-.394.956q-.394.394-.956.394Zm0 1q.988 0 1.67-.68q.68-.681.68-1.67q0-.794-.48-1.696q-.48-.902-1.87-2.684q-1.39 1.782-1.87 2.684q-.48.902-.48 1.696q0 .989.68 1.67q.682.68 1.67.68ZM6.496 20h11.027H6.496Z"/></svg>
             <span class="text-xs uppercase mt-4 text-gray-500">Bebidas</span>
@@ -46,48 +75,77 @@
           
         <div id="indicator" class="indicator absolute bottom-0 left-0 h-1 bg-[#568cb0] rounded-full w-[100px]"></div>
       </nav> 
-
     </div>
 
-    <section>
-      <div class="py-14">
-        <h2 class="text-4xl text-center font-bold text-[#0d436b] uppercase tracking-widest ">Bugambilias</h2>
-        <hr class="mt-6 w-md h-1 mx-auto my-4 bg-[#568cb0] border-0 rounded-sm md:my-10 ">
+    <header>
+      <div class="py-11">
+        <h2 class="text-3xl text-center font-bold text-[#0d436b] uppercase tracking-widest ">Bebidas</h2>
+        <hr class="w-11/12 h-0.5 mx-auto bg-[#568cb0] border-0 rounded-sm md:my-5 ">
       </div>
-    </section>
+    </header>
 
 
-    <!-- Contenedor con margen para evitar que el contenido se solape con el nav -->
-<div class="pt-20"></div>
-
-<section class="max-w-7xl mx-auto px-4 py-8">
-    <h2 id="bebidas" class="text-2xl italic text-[#a87c50] mb-4">Agua Natural</h2>
-
-    <div class="space-y-4">
-        <div class="flex justify-between border-b pb-2">
-            <span class="font-semibold">BONAFONT <span class="text-gray-500">(330 ML)</span></span>
-            <span class="text-gray-800 font-bold">$45</span>
-        </div>
-        <div class="flex justify-between border-b pb-2 border-[#a87c50]">
-            <span class="font-semibold">EVIAN <span class="text-gray-500">(330 ML)</span></span>
-            <span class="text-gray-800 font-bold">$100</span>
-        </div>
-        <div class="flex justify-between border-b pb-2 border-[#a87c50]">
-            <span class="font-semibold">AGUA DE PIEDRA <span class="text-gray-500">(650 ML)</span></span>
-            <span class="text-gray-800 font-bold">$180</span>
-        </div>
-        <div class="flex justify-between border-b pb-2 border-[#a87c50]">
-            <span class="font-semibold">ALAMEDA <span class="text-gray-500">(750 ML)</span></span>
-            <span class="text-gray-800 font-bold">$190</span>
-        </div>
-        <div class="flex justify-between border-b pb-2 border-[#a87c50]">
-            <span class="font-semibold">EVIAN <span class="text-gray-500">(750 ML)</span></span>
-            <span class="text-gray-800 font-bold">$220</span>
-        </div>
+  <!-- Menu -->
+  <div class="max-w-full mx-28 px-3 pr-32">
+    <div>
+      <span id="bebidas" class="text-2xl italic text-[#568cb0] mb-4">Vinos</span>
+      <div class="space-y-5">
+          <span id="bebidas" class="text- italic text-[#568cb0] mb-4">Espumosos</span>
+          <div class="flex justify-between border-b border-[#568cb0] pb-2 mt-6 text-gray-500">
+              <span class="font-semibold">Prosecco <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class="font-bold">$960</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">Cava Sutra <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class=" font-bold">$960</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">AGUA DE PIEDRA <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class="font-bold">$180</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">ALAMEDA <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class="font-bold">$190</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">EVIAN <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class=" font-bold">$220</span>
+          </div>
+      </div>
     </div>
-</section>
-    
 
-    <script src="./js/app.js"></script>
+    <div class="my-5">
+      <span id="bebidas" class="text-2xl italic text-[#568cb0] mb-4">Vinos</span>
+      <div class="space-y-5">
+          <span id="bebidas" class="text- italic text-[#568cb0] mb-4">Espumosos</span>
+          <div class="flex justify-between border-b border-[#568cb0] pb-2 mt-6 text-gray-500">
+              <span class="font-semibold">Prosecco <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class="font-bold">$960</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">Cava Sutra <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class=" font-bold">$960</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">AGUA DE PIEDRA <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class="font-bold">$180</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">ALAMEDA <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class="font-bold">$190</span>
+          </div>
+          <div class="flex justify-between border-b pb-2 border-[#568cb0] text-gray-500">
+              <span class="font-semibold">EVIAN <span class="text-gray-500 text-xs">(750 ML)</span></span>
+              <span class=" font-bold">$220</span>
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <script src="./js/app.js"></script>
+    
   </body>
 </html>
