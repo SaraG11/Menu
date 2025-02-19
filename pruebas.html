@@ -44,26 +44,42 @@
   </div>
 
   <!-- Nav principal -->
-  <div class="w-full overflow-x-auto scrollbar-hide shadow-lg rounded-lg">   
-    <nav id="menuNav" class="flex justify-between h-20 bg-gray-50 text-[#568cb0] px-4 sm:px-8 md:px-20">
-      <a href="#" class="menu-item flex flex-col items-center text-center px-4 sm:px-6 md:px-10">
-        <ion-icon name="wine"></ion-icon>
-        <span class="text-xs uppercase mt-2 text-gray-500">Bebidas</span>
-      </a>
-      <a href="#" class="menu-item flex flex-col items-center text-center px-4 sm:px-6 md:px-10">
-        <ion-icon name="restaurant"></ion-icon>
-        <span class="text-xs uppercase mt-2 text-gray-500">Desayuno</span>
-      </a>
-      <a href="#" class="menu-item flex flex-col items-center text-center px-4 sm:px-6 md:px-10">
-        <ion-icon name="nutrition"></ion-icon>
-        <span class="text-xs uppercase mt-2 text-gray-500">Comida</span>
-      </a>
-      <a href="#" class="menu-item flex flex-col items-center text-center px-4 sm:px-6 md:px-10">
-        <ion-icon name="beer"></ion-icon>
-        <span class="text-xs uppercase mt-2 text-gray-500">Cocteles</span>
-      </a>
-    </nav>
+  <div class="relative w-full overflow-x-auto scrollbar-hide shadow-lg rounded-lg">   
+      
+    <nav id="menuNav" class="flex justify-between h-20 text-center bg-gray-50 relative text-[#568cb0] sm:px-8 md:px-20">
+      <!-- Botón Izquierdo -->
+  <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md p-2 rounded-full z-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 16.58L10.83 12l4.58-4.58L14 6l-6 6 6 6z"/></svg>
+  </button>
+        <a href="#" class="menu-item flex flex-col px-5 py-2 sm:px-8 md:px-20 items-center active" data-section="bebidas">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 24 24"><path fill="currentColor" d="M7.475 21q-.621 0-1.078-.407q-.457-.406-.532-1.022L4 3h16l-1.846 16.571q-.075.616-.532 1.022T16.544 21H7.475ZM5.727 9.385l1.138 10.077q.039.23.212.384T7.48 20h9.057q.231 0 .404-.154q.173-.154.212-.384l1.138-10.077H5.727Zm-.135-1h12.835L18.865 4H5.115l.477 4.385ZM12 17.115q-.562 0-.956-.394q-.394-.394-.394-.956q0-.51.28-1.083q.28-.574 1.07-1.66q.79 1.086 1.07 1.66q.28.574.28 1.083q0 .562-.394.956q-.394.394-.956.394Zm0 1q.988 0 1.67-.68q.68-.681.68-1.67q0-.794-.48-1.696q-.48-.902-1.87-2.684q-1.39 1.782-1.87 2.684q-.48.902-.48 1.696q0 .989.68 1.67q.682.68 1.67.68ZM6.496 20h11.027H6.496Z"/></svg>
+          <span class="text-xs uppercase mt-2 text-gray-500">Bebidas</span>
+        </a>
+    
+        <a href="#" class="menu-item flex flex-col px-5 py-2 sm:px-8 md:px-20 items-center" data-section="desayuno">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="70" viewBox="0 0 512 512"><path fill="currentColor" d="M464 344.063c0-109.308-84.755-199.193-192-207.39V80h-32v56.673c-107.245 8.2-192 98.082-192 207.39v33.107h416Zm-32 1.107H80v-1.107c0-97.046 78.953-176 176-176s176 78.953 176 176ZM16 416h480v32H16z"/></svg>
+          <span class="text-xs sm:text-sm uppercase mt-2 text-gray-500">Desayuno</span>
+        </a>
+
+        <a href="#" class="menu-item flex flex-col px-5 py-2 sm:px-8 md:px-20 items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="70" viewBox="0 0 512 512"><path fill="currentColor" d="M464 344.063c0-109.308-84.755-199.193-192-207.39V80h-32v56.673c-107.245 8.2-192 98.082-192 207.39v33.107h416Zm-32 1.107H80v-1.107c0-97.046 78.953-176 176-176s176 78.953 176 176ZM16 416h480v32H16z"/></svg>
+          <span class="text-xs uppercase mt-2 text-gray-500">Comida</span>
+        </a>
+        <a href="#" class="menu-item flex flex-col px-5 py-2 sm:px-8 md:px-20 items-center active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="70" viewBox="0 0 20 20"><g fill="currentColor"><path d="M6 8a.5.5 0 0 1 0-1h8a.5.5 0 0 1 0 1H6Z"/><path fill-rule="evenodd" d="m3.134 5.34l6.5 7a.5.5 0 0 0 .732 0l6.5-7a.5.5 0 0 0-.366-.84h-13a.5.5 0 0 0-.366.84Zm1.513.16h10.706L10 11.265L4.647 5.5Z" clip-rule="evenodd"/><path d="M9.5 11.875h1l.125.125v6l-.125.125h-1L9.375 18v-6l.125-.125Z"/><path d="M14.5 20h-9c0-1.475 2.05-2.5 4.5-2.5s4.5 1.025 4.5 2.5ZM12.879 1.567a.5.5 0 0 1 .242-.97l4 1a.5.5 0 0 1-.242.97l-4-1Z"/><path d="M10.203 9.747a.5.5 0 0 1-.94-.343L12.356.911a.5.5 0 1 1 .94.342l-3.093 8.494Z"/></g></svg>
+          <span class="text-xs uppercase mt-4 text-gray-500">Cocteles</span>
+        </a>
+        
+      <div id="indicator" class="indicator absolute bottom-0 left-0 h-1 bg-[#568cb0] rounded-full w-[100px]"></div>
+      <!-- Botón Derecho -->
+    <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md p-4 rounded-full z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.58L13.17 12l-4.58-4.58L10 6l6 6-6 6z"/></svg>
+    </button>
+    </nav> 
+    
+   
   </div>
+  
 
   <!-- Secciones de cada elemento del menú -->
   <div class="content-section max-w-full mx-auto px-5 sm:px-10 md:px-28" id="bebidas">

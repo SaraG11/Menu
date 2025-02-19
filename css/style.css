@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .indicator {
-    transition: all 0.4s ease-in-out;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.indicator {
+  transition: all 0.4s ease-in-out;
 }  

@@ -3,8 +3,11 @@ const closeBtn = document.getElementById("close-btn");
 const sidebar = document.getElementById("sidebar");
 const menuItems = document.querySelectorAll(".menu-item");
 const sections = document.querySelectorAll(".content-section");
+const menuNav = document.getElementById("menuNav");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-
+const scrollAmount = 100; // Ajusta según el tamaño de los elementos
 
 document.addEventListener("DOMContentLoaded", function () {
   // Evento para abrir el sidebar
@@ -47,6 +50,15 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add("active");
       
       });
+
+  });
+
+  prevBtn.addEventListener("click", function () {
+    menuNav.scrollBy({ left: -200, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", function () {
+    menuNav.scrollBy({ left: 200, behavior: "smooth" });
   });
 
 
