@@ -2,6 +2,7 @@ const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-btn");
 const sidebar = document.getElementById("sidebar");
 const menuItems = document.querySelectorAll(".menu-item");
+const indicator = document.getElementById("indicator");
 const sections = document.querySelectorAll(".content-section");
 const menuNav = document.getElementById("menuNav");
 const prevBtn = document.getElementById("prevBtn");
@@ -22,9 +23,30 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebar.classList.add("-translate-x-full");
   });
 
-  // Evento para los elementos del menu
+  /// Obtener el elemento activo al cargar la página
   const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
-  if(activeItem) updateIndicator(activeItem)
+  updateIndicator(activeItem);
+
+  // Evento al hacer clic en un menú-item
+  menuItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+          // Remover clase active de todos los items
+          menuItems.forEach((el) => el.classList.remove("active"));
+
+          // Agregar clase active al elemento clickeado
+          e.currentTarget.classList.add("active");
+
+          // Actualizar indicador
+          updateIndicator(e.currentTarget);
+      });
+      
+  });
+
+  // Evento para actualizar el indicador cuando cambia el tamaño de la ventana
+  window.addEventListener("resize", () => {
+      const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
+      updateIndicator(activeItem);
+  });
   
   // Evento click en cada item
   menuItems.forEach((item) => {
@@ -53,19 +75,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-  prevBtn.addEventListener("click", function () {
-    menuNav.scrollBy({ left: -200, behavior: "smooth" });
-  });
-
-  nextBtn.addEventListener("click", function () {
-    menuNav.scrollBy({ left: 200, behavior: "smooth" });
-  });
-
-
+  // Función para actualizar la posición del indicador
   function updateIndicator(activeItem) {
+    if (!activeItem) return; 
     const { offsetLeft, offsetWidth } = activeItem;
     indicator.style.width = `${offsetWidth}px`;
     indicator.style.transform = `translateX(${offsetLeft}px)`;
-  }
+  } 
+
+
 });
   
