@@ -23,9 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebar.classList.add("-translate-x-full");
   });
 
-  /// Obtener el elemento activo al cargar la página
-  const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
-  updateIndicator(activeItem);
+   // Encuentra el elemento activo o selecciona el primero
+   const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
+   if (activeItem) {
+       showSection(activeItem.getAttribute("data-section"));
+       moveIndicator(activeItem);
+   }
 
   // Evento al hacer clic en un menú-item
   menuItems.forEach((item) => {
@@ -37,52 +40,42 @@ document.addEventListener("DOMContentLoaded", function () {
           e.currentTarget.classList.add("active");
 
           // Actualizar indicador
-          updateIndicator(e.currentTarget);
+          moveIndicator(e.currentTarget);
       });
       
   });
 
-  // Evento para actualizar el indicador cuando cambia el tamaño de la ventana
-  window.addEventListener("resize", () => {
-      const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
-      updateIndicator(activeItem);
-  });
+  
   
   // Evento click en cada item
-  menuItems.forEach((item) => {
-      item.addEventListener("click", function (e) {
-      e.preventDefault();
-      menuItems.forEach((el) => el.classList.remove("active"));
-      this.classList.add("active");
-      updateIndicator(this);
+  menuItems.forEach(item => {
+    item.addEventListener("click", function (event) {
+        event.preventDefault();
 
-      // Obtener la sección correspondiente
-      const targetSection = this.getAttribute("data-section");
+        // Remueve la clase 'active' de todos los elementos
+        menuItems.forEach(el => el.classList.remove("active"));
 
-      // Ocultar todas las secciones
-      sections.forEach(section => section.classList.add("hidden"));
+        // Agrega la clase 'active' al elemento actual
+        this.classList.add("active");
 
-      // Mostrar la sección seleccionada
-      document.getElementById(targetSection).classList.remove("hidden");
-
-      // Remover la clase 'active' de todos los botones
-      menuItems.forEach(btn => btn.classList.remove("active"));
-      
-      // Agregar la clase 'active' al botón seleccionado
-      this.classList.add("active");
-      
-      });
-
+        // Muestra la sección correspondiente
+        showSection(this.getAttribute("data-section"));
+    });
   });
 
-  // Función para actualizar la posición del indicador
-  function updateIndicator(activeItem) {
-    if (!activeItem) return; 
-    const { offsetLeft, offsetWidth } = activeItem;
-    indicator.style.width = `${offsetWidth}px`;
-    indicator.style.transform = `translateX(${offsetLeft}px)`;
-  } 
+  function moveIndicator(element) {
+    if (!element) return;
+    const rect = element.getBoundingClientRect();
+    const parentRect = element.parentElement.getBoundingClientRect();
+    indicator.style.width = `${rect.width}px`;
+    indicator.style.transform = `translateX(${rect.left - parentRect.left}px)`;
+  }
 
+  function showSection(sectionId) {
+    sections.forEach(section => {
+        section.style.display = section.id === sectionId ? "block" : "none";
+    });
+  }
 
 });
   
