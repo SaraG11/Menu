@@ -7,10 +7,20 @@ const sections = document.querySelectorAll(".content-section");
 const menuNav = document.getElementById("menuNav");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const headerImage = document.querySelector("#header-image");
 
-const scrollAmount = 100; // Ajusta según el tamaño de los elementos
+
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Define un objeto que asocia cada sección con una imagen diferente
+  const imageMap = {
+    "cocteles": "./img/vinos_menu.jpg",
+    "desayuno": "./img/desayuno.jpg",
+    "cena": "./img/cena_el_faro.jpg",
+    "postres": "./img/desayuno.jpg"
+  };
+  
+  
   // Evento para abrir el sidebar
   menuBtn.addEventListener("click", function () {
       sidebar.classList.remove("-translate-x-full");
@@ -26,8 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
    // Encuentra el elemento activo o selecciona el primero
    const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
    if (activeItem) {
-       showSection(activeItem.getAttribute("data-section"));
-       moveIndicator(activeItem);
+      const section = activeItem.getAttribute("data-section");
+      showSection(section);
+      moveIndicator(activeItem);
+      updateHeaderImage(section);
    }
 
   // Evento al hacer clic en un menú-item
@@ -58,8 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Agrega la clase 'active' al elemento actual
         this.classList.add("active");
 
-        // Muestra la sección correspondiente
-        showSection(this.getAttribute("data-section"));
+        const section = this.getAttribute("data-section");
+            showSection(section);
+            moveIndicator(this);
+            updateHeaderImage(section);
     });
   });
 
@@ -75,6 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach(section => {
         section.style.display = section.id === sectionId ? "block" : "none";
     });
+  }
+
+  function updateHeaderImage(section) {
+    if (imageMap[section]) {
+        headerImage.src = imageMap[section]; // Cambia la imagen del header
+    }
   }
 
 });

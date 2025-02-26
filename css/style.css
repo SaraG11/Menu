@@ -1,5 +1,34 @@
 @import "tailwindcss";
 
+/* Fuentes */
+.categoria{
+  font-family: "GFS Didot", serif;
+  font-style: normal;
+  font-weight: 500;
+  color: #cba058;
+}
+.platillo{
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: #004679;
+}
+.contenido{
+  font-family: "Montserrat", serif;
+  font-style: normal;
+  color: #004679;
+}
+.precio{
+  font-family: "Montserrat", serif;
+  color: #cba058;
+}
+.italic{
+  font-style: italic;
+}
+.bg-header{
+  background-color: #004679;
+}
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
