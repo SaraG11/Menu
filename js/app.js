@@ -14,10 +14,10 @@ const headerImage = document.querySelector("#header-image");
 document.addEventListener("DOMContentLoaded", function () {
   // Define un objeto que asocia cada sección con una imagen diferente
   const imageMap = {
-    "cocteles": "./img/vinos_menu.jpg",
-    "desayuno": "./img/desayuno.jpg",
-    "cena": "./img/cena_el_faro.jpg",
-    "postres": "./img/desayuno.jpg"
+    "cocteles": "./img/vinos.jpg",
+    "desayuno": "./img/desayuno_moon.jpg",
+    "cena": "./img/faro_cena.jpg",
+    "postres": "./img/postre.jpg"
   };
   
   
