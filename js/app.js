@@ -13,12 +13,12 @@ const headerImage = document.querySelector("#header-image");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Define un objeto que asocia cada sección con una imagen diferente
-  const imageMap = {
-    "cocteles": "./img/vinos.jpg",
-    "desayuno": "./img/desayuno_moon.jpg",
-    "cena": "./img/faro_cena.jpg",
-    "postres": "./img/postre.jpg"
-  };
+  // const imageMap = {
+  //   "cocteles": "./img/vinos.jpg",
+  //   "desayuno": "./img/desayuno_moon.jpg",
+  //   "cena": "./img/faro_cena.jpg",
+  //   "postres": "./img/postre.jpg"
+  // };
   
   
   // Evento para abrir el sidebar
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const section = activeItem.getAttribute("data-section");
       showSection(section);
       moveIndicator(activeItem);
-      updateHeaderImage(section);
+      // updateHeaderImage(section);
    }
 
   // Evento al hacer clic en un menú-item
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const section = this.getAttribute("data-section");
             showSection(section);
             moveIndicator(this);
-            updateHeaderImage(section);
+            // updateHeaderImage(section);
     });
   });
 
@@ -91,11 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function updateHeaderImage(section) {
-    if (imageMap[section]) {
-        headerImage.src = imageMap[section]; // Cambia la imagen del header
-    }
-  }
+  // function updateHeaderImage(section) {
+  //   if (imageMap[section]) {
+  //       headerImage.src = imageMap[section]; // Cambia la imagen del header
+  //   }
+  // }
 
 });
   
