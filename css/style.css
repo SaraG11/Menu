@@ -50,3 +50,13 @@
 .pt-9{
   padding-top: 2.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .web-only {
+      display: none !important;
+  }
+
+  .mobile-only {
+      display: block;
+  }
+}
