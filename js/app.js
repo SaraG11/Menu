@@ -57,8 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
   });
 
-  
-  
+
   // Evento click en cada item
   menuItems.forEach(item => {
     item.addEventListener("click", function (event) {
