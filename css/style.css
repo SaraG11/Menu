@@ -50,6 +50,38 @@
 .pt-9{
   padding-top: 2.5rem;
 }
+.space-y-7{
+  margin-top: 1.75rem;
+}
+
+@media screen and (width >= 80rem){
+  .xl-px{
+    padding-left: 30rem;
+    padding-right: 30rem;
+  }
+}
+
+@media screen and (width >= 64rem) and (width <= 80rem){
+  .lg-px{
+    padding-left: 25rem;
+    padding-right: 25rem;
+  }
+}
+
+@media screen and (width >= 48rem) and (width <= 64rem){
+  .md-px{
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}
+
+@media screen and (width <= 40rem){
+  .sm-px{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   .web-only {

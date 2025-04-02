@@ -7,74 +7,48 @@ const sections = document.querySelectorAll(".content-section");
 const menuNav = document.getElementById("menuNav");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const headerImage = document.querySelector("#header-image");
+const headerImage = document.getElementById("header-image");
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Define un objeto que asocia cada sección con una imagen diferente
-  const imageMap = {
-    "cocteles": "./img/vinos.jpg",
-    "desayuno": "./img/desayuno_moon.jpg",
-    "cena": "./img/faro_cena.jpg",
-    "postres": "./img/postre.jpg"
-  };
-  
-  
-  // Evento para abrir el sidebar
-  menuBtn.addEventListener("click", function () {
-      sidebar.classList.remove("-translate-x-full");
-      sidebar.classList.add("translate-x-0");
-  });
+   
+    const firstItem = menuItems[0];
+    if (firstItem) {
+        firstItem.classList.add("active");
+        moveIndicator(firstItem);
+        updateHeaderImage(firstItem);
+        showSection(firstItem.getAttribute("data-section"));
+    }
 
-  // Evento para cerrar el sidebar
-  closeBtn.addEventListener("click", function () {
-    sidebar.classList.remove("translate-x-0");
-    sidebar.classList.add("-translate-x-full");
-  });
-
-   // Encuentra el elemento activo o selecciona el primero
+   /// Encuentro el elemento activo o selecciono el primero
    const activeItem = document.querySelector(".menu-item.active") || menuItems[0];
    if (activeItem) {
-      const section = activeItem.getAttribute("data-section");
-      showSection(section);
-      moveIndicator(activeItem);
-      updateHeaderImage(section);
+       activeItem.classList.add("active");
+       const section = activeItem.getAttribute("data-section");
+       showSection(section);
+       moveIndicator(activeItem);
+       updateHeaderImage(activeItem);
    }
 
-  // Evento al hacer clic en un menú-item
-  menuItems.forEach((item) => {
-      item.addEventListener("click", (e) => {
-          // Remover clase active de todos los items
-          menuItems.forEach((el) => el.classList.remove("active"));
 
-          // Agregar clase active al elemento clickeado
-          e.currentTarget.classList.add("active");
-
-          // Actualizar indicador
-          moveIndicator(e.currentTarget);
-      });
-      
-  });
-
-
-  // Evento click en cada item
+  // Evento click en cada item del nav
   menuItems.forEach(item => {
-    item.addEventListener("click", function (event) {
-        event.preventDefault();
+        item.addEventListener("click", function (event) {
+            event.preventDefault();
 
-        // Remueve la clase 'active' de todos los elementos
-        menuItems.forEach(el => el.classList.remove("active"));
+            // Remueve la clase 'active' de todos los elementos
+            menuItems.forEach(el => el.classList.remove("active"));
 
-        // Agrega la clase 'active' al elemento actual
-        this.classList.add("active");
+            // Agrega la clase 'active' al elemento actual
+            this.classList.add("active");
 
-        const section = this.getAttribute("data-section");
-            showSection(section);
             moveIndicator(this);
-            updateHeaderImage(section);
+            updateHeaderImage(this);
+            showSection(this.getAttribute("data-section"));
+        });
     });
-  });
+
 
   function moveIndicator(element) {
     if (!element) return;
@@ -86,15 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showSection(sectionId) {
     sections.forEach(section => {
-        section.style.display = section.id === sectionId ? "block" : "none";
+        if (section.id === sectionId) {
+            section.classList.remove("hidden");
+            section.style.display = "block";
+        } else {
+            section.classList.add("hidden");
+            section.style.display = "none";
+        }
     });
-  }
+}
 
-  function updateHeaderImage(section) {
-    if (imageMap[section]) {
-        headerImage.src = imageMap[section]; // Cambia la imagen del header
+  function updateHeaderImage(sectionElement) {
+    if (!sectionElement) return;
+    const newImage = sectionElement.getAttribute("data-image");
+    if (newImage) {
+        headerImage.src = newImage;
     }
   }
 
 });
-  
